@@ -10,12 +10,31 @@ const literaturaGeneral = document.getElementById('GeneralLiterature')
 const hobbiesDeportes = document.getElementById('Hobbies-Sports')
 const vidaReal = document.getElementById('RealLife')
 const cienciaTecnologia = document.getElementById('Science-Technology')
-
-
+const todos = document.getElementById('todos')
 let libros = []
+
 
 document.addEventListener('DOMContentLoaded', () => {
     loadLibros()
+})
+
+todos.addEventListener('click', () => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'adc945c8cfmshc079843a7036b3cp1f019ejsnb4f51094f00d',
+            'X-RapidAPI-Host': 'book-finder1.p.rapidapi.com'
+        }
+    };
+    
+    fetch('https://book-finder1.p.rapidapi.com/api/search?lexile_min=600&lexile_max=800&results_per_page=100&page=1', options)
+        .then(response => response.json())
+        .then(response => {
+            libros = response
+           creaCards()
+            console.log('libros', libros)
+        })
+        .catch(err => console.error(err));
 })
 
 cienciaTecnologia.addEventListener('click', () => {
@@ -205,6 +224,7 @@ const creaCards = () => {
         cardBooks.querySelector('.booktitle').textContent = book.title
         cardBooks.querySelector('.authorname').textContent = book.authors
         cardBooks.querySelector('.categoria').textContent = book.categories
+        
 
         const clone = cardBooks.cloneNode(true)
         fragment.appendChild(clone)

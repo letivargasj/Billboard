@@ -18,6 +18,7 @@
             <img src="./images/librerias-gandhi.png" id='imgLogo'>
         </div>
         <div class="menu">
+            <div class="cat" id="todos">Todos</div> 
             <div class="cat" id="Mystery-Suspense">Mystery & Suspense </div>            
             <div class="cat" id="ScienceFiction-Fantasy">Science Fiction & Fantasy </div>
             <div class="cat" id="Animals">Animals</div>
@@ -28,10 +29,6 @@
             <div class="cat" id="Science-Technology">Science & Technology</div>
         </div>
         <div class="contenedor">
-            <div class="buscador">
-                <input type="text" id="buscador" class="inputBuscador" placeholder="Escribe el libro">
-                <i class="fa-solid fa-magnifying-glass iconoBuscar"></i>
-            </div>
             <div class="contenido" id="contenido"></div>
         </div>
     </div>
@@ -41,10 +38,28 @@
             <img src="" class="card-img-top imgStyle" alt="">
             <div class="card-body cardStyle">
               <p class="card-text">
+                <button type="button" class="btn btn-dark" id="btnBook">
+                    <i class="fa-solid fa-eye iconoVista"></i>
+                    Ver
+                </button>
                 <div class="booktitle"></div>
                 <div class="authorname"></div>
-                <a href="" class="loadsBook"></a>
                 <div class="categoria"></div>
+              </p>
+            </div>
+        </div>
+    </template>
+
+    
+    <template id="cardPreview">
+        <div class="card" style="width: 80%;">
+            <img src="" class="card-img-top imgCompleta" alt="">
+            <div class="card-body cardCompleta">
+              <p class="card-text">
+                <div class="booktitleCarta"></div>
+                <div class="authornameCarta"></div>
+                <div class="categoriaCarta"></div>
+                <div class="summaryCarta"></div>
               </p>
             </div>
         </div>
